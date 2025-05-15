@@ -1,0 +1,843 @@
+/* ===== Глобальные стили ===== */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap');
+
+:root {
+  /* Цветовая схема */
+  --bg-dark: #0a0a12;
+  --bg-darker: #050508;
+  --neon-green: #72d7e9;
+  --neon-pink: #ef7b45;
+  --text-light: #e0e0e0;
+  --text-gray: #8a8a8a;
+}
+
+/* Базовые стили */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Типография */
+h1, h2, h3, h4 {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--neon-green);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px rgba(0, 255, 170, 0.3);
+}
+
+a {
+  color: var(--neon-pink);
+  text-decoration: none;
+  transition: text-shadow 0.3s;
+}
+
+a:hover {
+  text-shadow: 0 0 8px var(--neon-pink);
+}
+
+/* Основные компоненты */
+header {
+  background-color: var(--bg-darker);
+  padding: 1.5rem;
+  text-align: center;
+  border-bottom: 2px solid var(--neon-green);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
+  padding: 0.5rem;
+}
+
+header.scrolled h1 {
+  font-size: 0;
+  opacity: 0;
+  margin: 0;
+  height: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+header h1 {
+  font-size: 2rem;
+  opacity: 1;
+  margin-bottom: 1rem;
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+nav {
+  transition: all 0.3s ease;
+}
+
+header.scrolled nav {
+  margin-top: 0;
+}
+
+nav a {
+  margin: 0 1rem;
+  font-size: 1.1rem;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--neon-pink);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a.active {
+  color: var(--neon-pink);
+  text-shadow: 0 0 8px var(--neon-pink);
+}
+
+nav a.active::after {
+  width: 100%;
+  box-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Карточки */
+.card {
+  background-color: var(--bg-darker);
+  border: 1px solid var(--neon-green);
+  border-radius: 5px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Эффект поднятия только для карточек, которые не являются частью блога */
+.card:not(.blog-post .card):hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 255, 170, 0.2);
+}
+
+.feature-card {
+  padding: 1.5rem;
+  margin: 0;
+}
+
+/* Кнопки */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--neon-green);
+  color: var(--bg-dark);
+  border: none;
+  border-radius: 3px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1.5rem;
+}
+
+.btn:hover {
+  background-color: var(--neon-pink);
+  color: white;
+}
+
+/* Галерея */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1200px));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.gallery img {
+  width: 100%;
+  border: 1px solid var(--neon-pink);
+  border-radius: 3px;
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+.galleryArt {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.galleryArt img {
+  width: 100%;
+  border: 1px solid var(--neon-pink);
+  border-radius: 3px;
+  transition: transform 0.3s;
+}
+
+.galleryArt img:hover {
+  transform: scale(1.03);
+}
+
+/* Секции */
+main {
+  padding: 140px 5% 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  display: flex;
+  align-items: stretch;
+  padding: 2rem;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text {
+  flex: 1;
+  padding-bottom: 2rem;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--neon-pink);
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  margin-bottom: 1rem;
+}
+
+.trailer {
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  margin-top: 1.5rem;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Цитаты */
+.neon-quote {
+  border: 1px solid var(--neon-green);
+  border-left: 3px solid var(--neon-green);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  grid-column: 1 / -1;
+}
+
+.neon-quote blockquote {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.neon-quote footer {
+  text-align: right;
+  color: var(--neon-green);
+}
+
+/* Списки */
+ul {
+  list-style-type: none;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+li {
+  margin-bottom: 0.3rem;
+  position: relative;
+}
+
+li::before {
+  content: "•";
+  color: var(--neon-pink);
+  margin-right: 0.5rem;
+}
+
+/* Подвал */
+footer {
+  background-color: var(--bg-darker);
+  text-align: center;
+  padding: 1.5rem;
+  border-top: 2px solid var(--neon-green);
+  margin-top: 2rem;
+}
+
+/* Анимации */
+@keyframes neon-glow {
+  0%, 100% { text-shadow: 0 0 5px var(--neon-green); }
+  50% { text-shadow: 0 0 15px var(--neon-green); }
+}
+
+h1 {
+  animation: neon-glow 2s infinite;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  main {
+    padding: 0 3%;
+  }
+  
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .hero {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  
+  .hero-text {
+    padding-right: 0;
+    padding-bottom: 1.5rem;
+  }
+  
+  .hero-image {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Стили для страницы "Команда" */
+
+/* Фильтры */
+.role-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.role-filters .btn {
+    margin-top: 0;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--neon-green);
+}
+
+.role-filters .btn.active {
+    background-color: var(--neon-green);
+    color: var(--bg-dark);
+}
+
+/* Стили для страницы "Команда" */
+
+.role-filters-container {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    padding: 0 5%;
+}
+
+.role-filters {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.role-filter {
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-darker);
+    color: var(--text-light);
+    border: 1px solid var(--neon-green);
+    border-radius: 3px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.role-filter:hover,
+.role-filter.active {
+    background-color: var(--neon-green);
+    color: var(--bg-dark);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3.07%;
+}
+
+/* Стили карточек участников */
+.team-member.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(145deg, var(--bg-darker) 0%, rgba(10,10,18,0.95) 100%);
+    border: 1px solid var(--neon-green);
+    box-shadow: 0 0 15px rgba(114, 215, 233, 0.1);
+    transition: all 0.3s ease;
+}
+
+.team-member.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(114, 215, 233, 0.2);
+    border-color: var(--neon-pink);
+}
+
+.member-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--neon-green);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.team-member.card:hover .member-photo {
+    border-color: var(--neon-pink);
+}
+
+.team-member.card:hover .member-photo img {
+    transform: scale(1.1);
+}
+
+.member-info {
+    width: 100%;
+}
+
+.member-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--neon-green);
+    text-shadow: 0 0 5px rgba(114, 215, 233, 0.3);
+}
+
+.member-info .role {
+    font-size: 1.1rem;
+    color: var(--neon-pink);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.member-info ul {
+    text-align: left;
+    margin: 1rem 0;
+    padding: 0 1rem;
+}
+
+.member-info li {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.member-info li::before {
+    content: "→";
+    color: var(--neon-pink);
+    margin-right: 0.5rem;
+    display: inline-block;
+    transform: translateX(0);
+    transition: transform 0.2s ease;
+}
+
+.team-member.card:hover .member-info li::before {
+    transform: translateX(5px);
+}
+
+/* Стили для куратора (без карточки) */
+.team-mentor {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--neon-green);
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .role-filters {
+        justify-content: center;
+    }
+    
+    .member-photo {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Стили для страницы Журнала */
+.blog-posts {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.blog-post {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 1px solid var(--neon-green);
+    padding-bottom: 0.5rem;
+}
+
+.post-header h3 {
+    margin-bottom: 0;
+    color: var(--neon-pink);
+}
+
+.post-header time {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+.post-content {
+    display: flex;
+    gap: 2rem;
+}
+
+.post-text {
+    flex: 1;
+}
+
+.post-media {
+    flex: 1;
+    min-width: 300px;
+}
+
+.post-media img,
+.post-media video {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--neon-pink);
+}
+
+.post-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background-color: var(--bg-darker);
+    color: var(--neon-green);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.game-quote {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--neon-green);
+}
+
+.game-quote blockquote {
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.game-quote footer {
+    color: var(--neon-pink);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .post-content {
+        flex-direction: column;
+    }
+    
+    .post-media {
+        min-width: auto;
+    }
+    
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Посты в блоге */
+.blog-post .card {
+  padding: 2rem;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-bottom: 1px solid var(--neon-green);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-header h3 {
+  margin-bottom: 0;
+  color: var(--neon-pink);
+  font-size: 1.5rem;
+}
+
+.post-header time {
+  color: var(--text-gray);
+  font-size: 0.9rem;
+}
+
+.post-media video {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid var(--neon-pink);
+}
+
+.post-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.tag {
+  background-color: var(--bg-darker);
+  color: var(--neon-green);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+/* Цитаты */
+.game-quote,
+.neon-quote {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--neon-green);
+}
+
+.game-quote blockquote,
+.neon-quote blockquote {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.game-quote footer,
+.neon-quote footer {
+  color: var(--neon-pink);
+  font-size: 0.9rem;
+}
+
+/* Анимации */
+@keyframes neon-glow {
+  0%, 100% { text-shadow: 0 0 5px var(--neon-green); }
+  50% { text-shadow: 0 0 15px var(--neon-green); }
+}
+
+h1 {
+  animation: neon-glow 2s infinite;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  main {
+    padding: 0 3%;
+  }
+  
+  .hero {
+    flex-direction: column;
+  }
+  
+  .team-grid,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .member-photo {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .post-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .blog-post .card {
+    padding: 1.5rem;
+  }
+}
+
+/* Ресурсы */
+.resources-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3.07%;
+}
+
+.resource-section {
+    margin-bottom: 3rem;
+}
+
+.resource-section h3 {
+    color: var(--neon-green);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--neon-green);
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.resource-item {
+    height: 100%;
+    padding: 1.5rem;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.tool-item {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.tool-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 0;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 0;
+    transition: transform 0.3s;
+}
+
+.link-item:hover {
+    transform: translateX(5px);
+}
+
+.link-icon {
+    font-size: 1.5rem;
+    color: var(--neon-green);
+}
+
+@media (max-width: 768px) {
+    .resources-grid,
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .resources-content {
+        padding: 0 3%;
+    }
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 992px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    main {
+        padding-top: 170px;
+    }
+    
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    header.scrolled nav {
+        gap: 0.3rem;
+    }
+}

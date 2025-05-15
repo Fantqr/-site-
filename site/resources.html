@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ресурсы SHIVER | Киберпанк-приключение</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>SHIVER</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="about.html">О проекте</a>
+            <a href="team.html">Команда</a>
+            <a href="blog.html">Журнал</a>
+            <a href="resources.html" class="active">Ресурсы</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Ресурсы проекта</h2>
+                <p>В этом разделе мы собрали все материалы и инструменты, которые помогли нам создать игру. Здесь информация о наших партнерах, полезные обучающие материалы и профессиональные программы, без которых реализация проекта была бы невозможна. Мы благодарны каждому, кто поддерживал нас на этом пути.</p>
+            </div>
+        </section>
+
+        <div class="resources-content">
+            <!-- Партнёры -->
+            <section class="resource-section">
+                <h3>Наши партнёры</h3>
+                <div class="resource-item card">
+                    <h4>ООО "Ратибор"</h4>
+                    <p>Официальный партнёр проекта</p>
+                    <ul>
+                        <li>Консультации по геймдизайну</li>
+                        <li>Техническая поддержка</li>
+                    </ul>
+                    <a href="https://www.bolshoy.ru/" target="_blank" class="btn">Посетить сайт</a>
+                </div>
+            </section>
+
+            <!-- Книги и обучение -->
+            <section class="resource-section">
+                <h3>Литература и обучение</h3>
+                <div class="resources-grid">
+                    <div class="resource-item card">
+                        <h4>Джесси Шелл "Геймдизайн"</h4>
+                        <p>Основы создания игр</p>
+                        <br>
+                        <a href="https://books.google.ru/books?id=-jadDwAAQBAJ" target="_blank" class="btn">Читать</a>
+                    </div>
+                    <div class="resource-item card">
+                        <h4>Учебник по языку C#</h4>
+                        <p>Полное руководство по языку программирования С#</p>
+                        <a href="https://metanit.com/sharp/tutorial/" target="_blank" class="btn">Читать</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Инструменты -->
+            <section class="resource-section">
+                <h3>Использованные инструменты</h3>
+                <div class="tools-grid">
+                    <div class="tool-item card">
+                        <img src="images/application logos/unity-logo.png" alt="Unity" class="tool-logo">
+                        <h4>Unity 6</h4>
+                        <br>
+                        <p>Игровой движок</p>
+                    </div>
+                    <div class="tool-item card">
+                        <img src="images/application logos/krita-logo.png" alt="Aseprite" class="tool-logo">
+                        <h4>Krita</h4>
+                        <br>
+                        <p>Программа для рисования</p>
+                    </div>
+                    <div class="tool-item card">
+                        <img src="images/application logos/Adobe_Photoshop-logo.png" alt="FMOD" class="tool-logo">
+                        <h4>Adobe Photoshop</h4>
+                        <p>Графический редактор</p>
+                    </div>
+                    <div class="tool-item card">
+                        <img src="images/application logos/FL_Studio-logo.png" alt="FMOD" class="tool-logo">
+                        <h4>FL Studio</h4>
+                        <br>
+                        <p>Аудио движок</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Полезные ссылки -->
+            <section class="resource-section">
+                <h3>Полезные ссылки</h3>
+                <div class="links-list">
+                    <a href="https://www.indiedb.com/" target="_blank" class="link-item card">
+                        <span class="link-icon">🔗</span>
+                        <span>IndieDB - сообщество инди-разработчиков</span>
+                    </a>
+                    <a href="#" target="_blank" class="link-item card">
+                        <span class="link-icon">🔗</span>
+                        <span>Наш телеграмм бот</span>
+                    </a>
+                    <a href="https://itch.io/" target="_blank" class="link-item card">
+                        <span class="link-icon">🔗</span>
+                        <span>itch.io - платформа для инди-игр</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 SHIVER | Проект студентов Московского Политеха</p>
+        <p>Следите за нами в <a href="https://t.me/shiver_game" target="_blank">Telegram</a></p>
+    </footer>
+
+    <script>
+        // Отслеживание прокрутки для анимации шапки
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('scrolled');
+            } else {
+                header.classList.add('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

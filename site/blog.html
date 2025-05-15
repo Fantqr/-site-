@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Журнал разработки SHIVER</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>SHIVER</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="about.html">О проекте</a>
+            <a href="team.html">Команда</a>
+            <a href="blog.html" class="active">Журнал</a>
+            <a href="resources.html">Ресурсы</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Журнал разработки</h2>
+                <p>Последние новости и этапы создания игры</p>
+            </div>
+        </section>
+
+        <div class="resources-content">
+            <!-- Пост 1 -->
+            <article class="blog-post">
+                <div class="card">
+                    <div class="post-header">
+                        <h3>Завершена диалоговая система</h3>
+                        <time datetime="2025-05-11">11 мая 2025</time>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-text">
+                            <p>Реализована сложная система ветвящихся диалогов с вариантами ответов. Каждый выбор влияет на отношения с персонажами и концовку игры.</p>
+                            <div class="gallery">
+                                <img src="images/dialogs-screenshot.jpg" alt="Скриншот диалогов">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-tags">
+                        <span class="tag">#код</span>
+                        <span class="tag">#геймдизайн</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Пост 2 -->
+            <article class="blog-post">
+                <div class="card">
+                    <div class="post-header">
+                        <h3>Концепт-арты</h3>
+                        <time datetime="2025-04-28">28 апреля 2025</time>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-text">
+                            <p>Наши художники завершили работу над концептами основных локаций. Представляем галерею эскизов киберпанк-города.</p>
+                            <div class="galleryArt">
+                                <img src="images/concept art/concept_art-1.jpg" alt="Концепт локации 1">
+                                <img src="images/concept art/concept_art-2.jpg" alt="Концепт локации 2">
+                                <img src="images/concept art/concept_art-3.jpg" alt="Концепт локации 3">
+                                <img src="images/concept art/concept_art-4.jpg" alt="Концепт локации 4">
+                                <img src="images/concept art/concept_art-5.jpg" alt="Концепт локации 5">
+                                <img src="images/concept art/concept_art-6.jpg" alt="Концепт локации 6">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-tags">
+                        <span class="tag">#арт</span>
+                        <span class="tag">#дизайн</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Пост 3 -->
+            <article class="blog-post">
+                <div class="card">
+                    <div class="post-header">
+                        <h3>Участие в "Карьерном марафоне"</h3>
+                        <time datetime="2025-04-10">10 апреля 2025</time>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-text">
+                            <p>В рамках проекта по разработке игры для ПК наша команда посетила мероприятие "Карьерный марафон" в Московском Политехе. Это событие собрало множество IT-компаний, что предоставило уникальную возможность для студентов ознакомиться с цифровым рынком и потенциальными инвесторами.</p>
+                            
+                            <h4>Цели мероприятия</h4>
+                            <ul>
+                                <li>Ознакомление с актуальными тенденциями в IT-индустрии</li>
+                                <li>Установление контактов с представителями компаний</li>
+                                <li>Поиск потенциальных инвесторов для нашего проекта</li>
+                            </ul>
+
+                            <h4>Программа мероприятия</h4>
+                            <ul>
+                                <li>Выставка компаний с презентацией проектов и вакансий</li>
+                                <li>Панельные дискуссии с экспертами игровой индустрии</li>
+                                <li>Мастер-классы по разработке и продвижению игр</li>
+                            </ul>
+
+                            <blockquote class="game-quote">
+                                "Карьерный марафон стал важным шагом в развитии нашего проекта. Мы получили ценные советы по улучшению игры и установили контакты с потенциальными инвесторами."
+                                <footer>— Команда SHIVER</footer>
+                            </blockquote>
+
+                            <h4>Основные результаты</h4>
+                            <ul>
+                                <li>Глубокое понимание трендов в игровой индустрии</li>
+                                <li>Установление контактов с инвесторами</li>
+                                <li>Получение советов по улучшению продукта</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                    <div class="post-tags">
+                        <span class="tag">#мероприятие</span>
+                        <span class="tag">#развитие</span>
+                        <span class="tag">#нетворкинг</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 SHIVER | Проект студентов Московского Политеха</p>
+        <p>Следите за нами в <a href="https://t.me/shiver_game" target="_blank">Telegram</a></p>
+    </footer>
+
+    <script>
+        // Отслеживание прокрутки для анимации шапки
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('scrolled');
+            } else {
+                header.classList.add('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
