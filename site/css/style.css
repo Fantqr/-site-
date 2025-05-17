@@ -750,36 +750,31 @@ h1 {
     border-bottom: 1px solid var(--neon-green);
 }
 
-/* Сетка для обычных ресурсов */
 .resources-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
 }
 
-/* Специальная сетка для инструментов 2x2 */
-.resource-section .tools-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1rem !important;
-    max-width: 800px !important;
-    margin: 0 auto !important;
+/* Инструменты */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки для ПК */
+    gap: 1.5rem;
 }
 
-.resource-section .tool-item {
+.tool-item {
     text-align: center;
     padding: 1.5rem;
-    width: 100%;
 }
 
-.resource-section .tool-logo {
+.tool-logo {
     width: 80px;
-    height: 800px;
+    height: 80px;
     object-fit: contain;
     margin-bottom: 1rem;
 }
 
-/* Полезные ссылки */
 .links-list {
     display: flex;
     flex-direction: column;
@@ -805,36 +800,43 @@ h1 {
     color: var(--neon-green);
 }
 
-/* Медиа запросы */
+@media (max-width: 992px) {
+    .tools-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 колонки для планшетов */
+    }
+}
+
 @media (max-width: 768px) {
-    .resources-grid {
-        grid-template-columns: 1fr;
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки для мобильных */
+        gap: 0.5rem;
     }
 
-    /* Сохраняем 2x2 сетку для инструментов даже на мобильных */
-    .resource-section .tools-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0.5rem !important;
+    .tool-item {
+        padding: 0.75rem;
     }
 
-    .resource-section .tool-item {
-        padding: 1rem;
-    }
-
-    .resource-section .tool-logo {
+    .tool-logo {
         width: 50px;
         height: 50px;
         margin-bottom: 0.5rem;
     }
 
-    .resource-section .tool-item h4 {
+    .tool-item h4 {
         font-size: 0.9rem;
         margin: 0.5rem 0;
     }
 
-    .resource-section .tool-item p {
+    .tool-item p {
         font-size: 0.8rem;
         margin: 0;
+    }
+
+    /* Отключаем hover-эффекты на мобильных */
+    .tool-item:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: var(--neon-green);
     }
 }
 
@@ -1129,4 +1131,82 @@ h1 {
     width: 100%;
     box-shadow: 0 0 10px var(--neon-pink);
   }
+}
+
+/* Инструменты */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки для ПК */
+    gap: 1.5rem;
+}
+
+.tool-item {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.tool-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+/* Полезные ссылки */
+.links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 0;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 0;
+    transition: transform 0.3s;
+}
+
+.link-item:hover {
+    transform: translateX(5px);
+}
+
+.link-icon {
+    font-size: 1.5rem;
+    color: var(--neon-green);
+}
+
+/* Медиа запросы для мобильных устройств */
+@media (max-width: 768px) {
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Сохраняем 2x2 сетку для инструментов даже на мобильных */
+    .resource-section .tools-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.5rem !important;
+    }
+
+    .resource-section .tool-item {
+        padding: 1rem;
+    }
+
+    .resource-section .tool-logo {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0.5rem;
+    }
+
+    .resource-section .tool-item h4 {
+        font-size: 0.9rem;
+        margin: 0.5rem 0;
+    }
+
+    .resource-section .tool-item p {
+        font-size: 0.8rem;
+        margin: 0;
+    }
 }
