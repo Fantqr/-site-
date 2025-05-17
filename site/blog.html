@@ -10,8 +10,14 @@
     <link rel="manifest" href="images/favicon/site.webmanifest">
     
     <link rel="stylesheet" href="css/style.css">
+    <!-- Иконки для мобильного меню -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="overlay"></div>
+    <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
     <header>
         <h1>SHIVER</h1>
         <nav>
@@ -66,7 +72,7 @@
                             <p>Наши художники завершили работу над концептами основных локаций. Представляем галерею эскизов киберпанк-города.</p>
                             <div class="galleryArt">
                                 <img src="images/concept art/concept_art-1.jpg" alt="Концепт локации 1">
-                                <img src="images/concept art/concept_art-2.jpg" alt="Концепт локации 2">
+                                <img src="images/concept art/concept_art-2.jpg" alt="Концепт локации 2"л
                                 <img src="images/concept art/concept_art-3.jpg" alt="Концепт локации 3">
                                 <img src="images/concept art/concept_art-4.jpg" alt="Концепт локации 4">
                                 <img src="images/concept art/concept_art-5.jpg" alt="Концепт локации 5">
@@ -136,6 +142,32 @@
     </footer>
 
     <script>
+        // Мобильное меню
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        const overlay = document.querySelector('.overlay');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
+
+        // Закрытие меню при клике на ссылку
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
         // Отслеживание прокрутки для анимации шапки
         let lastScroll = 0;
         const header = document.querySelector('header');
